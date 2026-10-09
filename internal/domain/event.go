@@ -30,5 +30,3 @@ type PlugHeldPayload struct {
 	DriverID  uuid.UUID `json:"driver_id"`
 	HeldUntil time.Time `json:"held_until"`
 }
-
-
