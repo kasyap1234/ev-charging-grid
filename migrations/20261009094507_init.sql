@@ -3,7 +3,7 @@ SELECT 'up SQL query';
 CREATE TABLE IF NOT EXISTS charging_stations(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(), 
     name TEXT NOT NULL, 
-    total_plugs INT NOT NULL, 
+    total_plugs INT NOT NULL 
 );
 
 CREATE TABLE IF NOT EXISTS charging_plugs(

@@ -1,4 +1,4 @@
-package domain
+package pkg
 
 import "errors"
 
@@ -11,4 +11,6 @@ var (
 
 	ErrInvalidDriver       = errors.New("driver id cannot be empty")
 	ErrInvalidHoldDuration = errors.New("hold duration must be greater than zero ")
+	ErrCreateNewSession =errors.New("unable to create new session")
+	
 )
