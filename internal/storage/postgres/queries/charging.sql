@@ -8,7 +8,7 @@
 WITH locked_plug AS (
     SELECT id, station_id
     FROM charging_plugs
-    WHERE id = @plug_id AND status = 'AVAILABLE'
+    WHERE charging_plugs.id = @plug_id AND status = 'AVAILABLE'
     FOR UPDATE
 ),
 updated_plug AS (
@@ -72,7 +72,7 @@ JOIN updated_plug p ON s.plug_id = p.id;
 WITH target_session AS (
     SELECT id, plug_id
     FROM charging_sessions
-    WHERE id = @session_id AND status = 'HELD'
+    WHERE charging_sessions.id = @session_id AND status = 'HELD'
     FOR UPDATE
 ),
 updated_session AS (
@@ -113,6 +113,11 @@ JOIN freed_plug p ON s.plug_id = p.id;
 -- ============================================================================
 -- 3. READ QUERIES (Cache Hydration & Verification)
 -- ============================================================================
+
+-- name: GetPlugByID :one
+SELECT id, station_id, status
+FROM charging_plugs
+WHERE charging_plugs.id = @plug_id;
 
 -- name: GetAvailablePlugsByStation :many
 SELECT id, station_id, status

@@ -26,7 +26,7 @@ CONSTRAINT chk_session_status CHECK (status IN ('HELD', 'CHARGING','COMPLETED','
 );
 -- +goose Down
 SELECT 'down SQL query';
-DROP TABLE IF NOT EXISTS charging_sessions; 
-DROP TABLE IF NOT EXISTS charging_plugs; 
-DROP TABLE IF NOT EXISTS charging_stations; 
+DROP TABLE IF  EXISTS charging_sessions; 
+DROP TABLE IF  EXISTS charging_plugs; 
+DROP TABLE IF  EXISTS charging_stations; 
 

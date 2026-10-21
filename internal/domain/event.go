@@ -30,3 +30,7 @@ type PlugHeldPayload struct {
 	DriverID  uuid.UUID `json:"driver_id"`
 	HeldUntil time.Time `json:"held_until"`
 }
+
+type HoldExpiredPayload struct {
+	SessionID string `json:"session_id"`
+}

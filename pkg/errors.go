@@ -10,7 +10,7 @@ var (
 	ErrPlugNotFound    = errors.New("plug not found")
 
 	ErrInvalidDriver       = errors.New("driver id cannot be empty")
-	ErrInvalidHoldDuration = errors.New("hold duration must be greater than zero ")
-	ErrCreateNewSession =errors.New("unable to create new session")
-	
+	ErrInvalidHoldDuration = errors.New("hold duration must be greater than zero")
+	ErrCreateNewSession    = errors.New("unable to create new session")
+	ErrPlugUnavailable     = errors.New("plug is not available")
 )

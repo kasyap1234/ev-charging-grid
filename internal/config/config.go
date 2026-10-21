@@ -102,7 +102,10 @@ func (c *Config) GetDatabaseURL() string {
 }
 
 func (c *Config) GetRedisURL() string {
-	return fmt.Sprintf("redis://%s:%d", c.Redis.Host, c.Redis.Port)
+	if c.Redis.Password == "" {
+		return fmt.Sprintf("redis://%s:%d", c.Redis.Host, c.Redis.Port)
+	}
+	return fmt.Sprintf("redis://:%s@%s:%d", c.Redis.Password, c.Redis.Host, c.Redis.Port)
 }
 
 func (c *Config) GetRabbitMQURL() string {
